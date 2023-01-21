@@ -4,6 +4,8 @@
 # call the function
 # while loop to continue the program until the user want to exit
 
+import os
+
 
 class Calculation:
     def __init__(self):
@@ -33,8 +35,19 @@ class Calculator:
 
     def loop(self):
         want = input("Wanna do it again? (y/n) ")
-        while want == "y" or want == "Y":
-            self.main()
+        if want == "y" or want == "Y":
+            want = True
+            while want == True:
+                os.system('cls')
+                self.main()
+        elif want == "n" or want == "N":
+            os.system('cls')
+            print("Bye")
+            exit()
+        else:
+            os.system('cls')
+            print("Enter proper answer!")
+            self.loop()
 
     def main(self):
         print("Calculator Program")
@@ -57,10 +70,12 @@ class Calculator:
             a = int(input("val1: "))
             b = int(input("val2: "))
             self.cal.sub(a, b)
+            self.loop()
         if choice == "3":
             a = int(input("val1: "))
             b = int(input("val2: "))
             self.cal.mul(a, b)
+            self.loop()
         if choice == "3":
             a = int(input("val1: "))
             b = int(input("val2: "))
@@ -69,7 +84,9 @@ class Calculator:
             a = int(input("val1: "))
             b = int(input("val2: "))
             self.cal.div(a, b)
+            self.loop()
         if choice == "5":
+            os.system('cls')
             print("Bye")
             exit()
 
