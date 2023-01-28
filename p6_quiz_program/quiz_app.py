@@ -30,4 +30,30 @@ quiz = {
         "question": "Who find Coservation Laws of Energy?",
         "answer": "James Prescott Joule"
     },
+    "question7": {
+        "question": "2x+8=12",
+        "answer": "2"
+    },
+    "question8": {
+        "question": "17+4h+2=1-5h, h = ?",
+        "answer": "-2"
+    },
 }
+score = 0
+
+for key, value in quiz.items():
+    print(value['question'])
+    answer = input("Answer? ")
+
+    if answer.lower() == value['answer'].lower():
+        print('Correct')
+        score += 1
+        print(f"Score = {score}")
+        print("")
+    else:
+        print('Wrong!')
+        print(f"The correct answer is {value['answer']}")
+        print(f"Score = {score}")
+        print("")
+
+print(f"You got {score} out of {quiz.__len__()} questions correctly")
